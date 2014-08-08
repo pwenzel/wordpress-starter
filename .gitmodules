@@ -1,0 +1,6 @@
+[submodule "wp-content/themes/podcast-network/vendor/tgm-plugin-activation"]
+	path = wp-content/themes/podcast-network/vendor/tgm-plugin-activation
+	url = https://github.com/thomasgriffin/TGM-Plugin-Activation.git
+[submodule "wp-content/plugins/xml-sitemap"]
+	path = wp-content/plugins/xml-sitemap
+	url = https://github.com/APMG/wordpress-xml-sitemap.git

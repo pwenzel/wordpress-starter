@@ -1,0 +1,16 @@
+{
+  "name": "Website",
+  "homepage": "",
+  "authors": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.3.3"
+  }
+}
