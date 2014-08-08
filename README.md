@@ -3,6 +3,9 @@
 * Uses a Makefile for installation and other tasks. 
 * Includes starter `.gitignore`. Does not include Wordpress core files in project.
 * Includes Codeception bootstrap and some helpers
+* Uses Bower to import front-end dependencies, such as Zurb Foundation
+* Uses TGM Plugin Activation to import required plugins
+* Does not use Composer, sorry.
 
 ## Development
 
@@ -12,9 +15,9 @@
 	cd ~/Sites/example
 	make
 
-# Setup 
+# Typical Setup 
 
-* Setup a development domain, e.g. http://example.dev
+* Create a development domain, e.g. http://example.dev
 * Point your Apache instance to ~/Sites/example
 * Create a MySQL database for your Wordpress installation
 * Run http://example.dev in your browser
