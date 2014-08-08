@@ -4,7 +4,7 @@ install: clean wordpress tests/.env.php
 	git submodule init
 	git submodule update
 	@echo "\nNOTICE: You may need to configure a MySQL database for your Wordpress installation. Just run:"
-	@echo " mysql -u root -p -e 'CREATE DATABASE IF NOT EXISTS infinite_guest;'\n"
+	@echo " mysql -u root -p -e 'CREATE DATABASE IF NOT EXISTS example_db;'\n"
 
 wordpress: latest.tar.gz	
 	tar -zxvf latest.tar.gz
@@ -28,7 +28,7 @@ test:
 optimize:
 	yuicompressor wp-content/themes/example-theme/assets/vendor/foundation/css/foundation.css -o wp-content/themes/podcast-network/assets/vendor/foundation/css/foundation.css 
 	# optipng wp-content/themes/example-theme/assets/img/*.png
-	# svgo wp-content/themes/example-theme/assets/example.svg
+	# svgo wp-content/themes/example-theme/assets/img/example.svg
 
 deploy:
 	git push production master
