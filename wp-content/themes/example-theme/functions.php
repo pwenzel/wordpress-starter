@@ -14,6 +14,8 @@
  * Menus
  * Widgets
  * dd() Helper Function
+ * Featured Image in Admin Column
+ * Image Dimensions in Admin Column
  */
 
 
@@ -300,4 +302,48 @@ if ( ! function_exists('dd')) {
     }
 
 }
+
+
+/**
+ * Featured Image in Admin Column
+ * @link http://wpsnipp.com/index.php/functions-php/add-featured-thumbnail-to-admin-post-columns/
+ * @link http://codex.wordpress.org/Plugin_API/Filter_Reference/manage_posts_columns
+ */
+add_filter('manage_pages_columns', 'posts_columns', 5);
+add_action('manage_pages_custom_column', 'posts_custom_columns', 5, 2);
+add_filter('manage_posts_columns', 'posts_columns', 5);
+add_action('manage_posts_custom_column', 'posts_custom_columns', 5, 2);
+function posts_columns($defaults){
+    $defaults['riv_post_thumbs'] = __('Featured Image');
+    return $defaults;
+}
+function posts_custom_columns($column_name, $id){
+        if($column_name === 'riv_post_thumbs'){
+        echo the_post_thumbnail( 'thumb' );
+    }
+}
+
+
+/**
+ * Image Dimensions in Admin Column
+ * @link http://polishlab.com/how-to-show-dimensions-of-your-images-in-the-wordpressadmin-media-panel
+ */
+add_filter('manage_upload_columns', 'size_column_register');
+function size_column_register($columns) {
+  $columns['dimensions'] = 'Dimensions';
+  return $columns;
+}
+add_action('manage_media_custom_column', 'size_column_display', 10, 2);
+function size_column_display($column_name, $post_id) {
+  if( 'dimensions' != $column_name || !wp_attachment_is_image($post_id))
+    return;
+    list($url, $width, $height) = wp_get_attachment_image_src($post_id, 'full');
+    echo esc_html("{$width}&amp;times;{$height}");
+}
+
+
+
+
+
+
 
